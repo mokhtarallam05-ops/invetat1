@@ -1,0 +1,287 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo', sans-serif;
+}
+
+body{
+  min-height:100vh;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  background:
+  linear-gradient(135deg,#f9f0ea,#f3d2c6);
+
+  overflow:hidden;
+
+  position:relative;
+}
+
+/* الورد */
+.flowers span{
+  position:absolute;
+  font-size:35px;
+  opacity:.7;
+  animation:flowers 10s linear infinite;
+}
+
+.flowers span:nth-child(1){
+  left:10%;
+}
+
+.flowers span:nth-child(2){
+  left:35%;
+  animation-delay:2s;
+}
+
+.flowers span:nth-child(3){
+  left:60%;
+  animation-delay:4s;
+}
+
+.flowers span:nth-child(4){
+  left:85%;
+  animation-delay:1s;
+}
+
+@keyframes flowers{
+
+  0%{
+    transform:
+    translateY(100vh)
+    rotate(0);
+
+    opacity:0;
+  }
+
+  100%{
+    transform:
+    translateY(-120vh)
+    rotate(360deg);
+
+    opacity:1;
+  }
+}
+
+/* الحاوية */
+.container{
+  position:relative;
+
+  width:550px;
+  height:380px;
+
+  cursor:pointer;
+}
+
+/* الجواب */
+.letter{
+  position:absolute;
+
+  width:90%;
+  height:340px;
+
+  left:5%;
+  bottom:0;
+
+  background:#fffaf5;
+
+  border-radius:20px;
+
+  padding:40px 30px;
+
+  z-index:1;
+
+  transition:1.2s ease;
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,.15);
+}
+
+/* النص */
+.text{
+  opacity:0;
+
+  transform:
+  translateY(40px);
+
+  transition:1s ease;
+
+  transition-delay:.7s;
+}
+
+/* الظرف */
+.envelope{
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  z-index:5;
+}
+
+/* الخلف */
+.back{
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  background:#c99682;
+
+  border-radius:20px;
+
+  box-shadow:
+  0 20px 40px rgba(0,0,0,.25);
+}
+
+/* الأمام */
+.front{
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  background:#b57d69;
+
+  clip-path:
+  polygon(
+    0 100%,
+    50% 55%,
+    100% 100%
+  );
+
+  z-index:8;
+}
+
+/* الغطا */
+.flap{
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  background:#a86f5b;
+
+  clip-path:
+  polygon(
+    0 0,
+    50% 60%,
+    100% 0
+  );
+
+  transform-origin:top;
+
+  transition:1s ease;
+
+  z-index:9;
+}
+
+/* فتح الغطا */
+.open .flap{
+  transform:rotateX(180deg);
+}
+
+/* طلوع الجواب */
+.open .letter{
+  transform:
+  translateY(-170px);
+
+  z-index:7;
+}
+
+/* ظهور الكلام */
+.open .text{
+  opacity:1;
+
+  transform:
+  translateY(0);
+}
+
+/* النصوص */
+h1{
+  text-align:center;
+  color:#8d3f4a;
+  font-size:50px;
+  margin-bottom:20px;
+}
+
+.invite{
+  text-align:center;
+  color:#6d5148;
+  font-size:25px;
+  margin-bottom:25px;
+}
+
+.details{
+  text-align:center;
+  line-height:2.5;
+  color:#5c4740;
+  font-size:23px;
+}
+
+.footer{
+  text-align:center;
+  margin-top:25px;
+  color:#b04f5c;
+  font-size:30px;
+  font-weight:bold;
+}
+
+/* النص */
+.click{
+  margin-top:30px;
+  color:#7d4c41;
+  font-size:24px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+  0%,100%{
+    opacity:1;
+  }
+
+  50%{
+    opacity:.4;
+  }
+}
+
+/* موبايل */
+@media(max-width:600px){
+
+  .container{
+    width:340px;
+    height:240px;
+  }
+
+  .letter{
+    height:250px;
+    padding:20px 15px;
+  }
+
+  h1{
+    font-size:30px;
+  }
+
+  .invite{
+    font-size:16px;
+  }
+
+  .details{
+    font-size:15px;
+  }
+
+  .footer{
+    font-size:18px;
+  }
+
+  .open .letter{
+    transform:
+    translateY(-110px);
+  }
+}
